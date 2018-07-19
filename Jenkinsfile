@@ -3,6 +3,10 @@ pipeline {
 
 	agent any
 
+	tools { 
+        gradle 'gradle-jenkins' 
+    }
+	
 	parameters {
         string(name: 'mqsihome', defaultValue: '/opt/ibm/iib-10.0.0.11', description: '')
 		string(name: 'workspacesdir', defaultValue: '/var/jenkins_home/workspace/spockTesting', description: '')
@@ -11,6 +15,7 @@ pipeline {
     }
 
 	stages {
+	/*
 		stage('SonarQube analysis') {
 			steps {
 				script {
@@ -67,5 +72,18 @@ pipeline {
 			
 				
 			}
+			*/
+			
+			stage('Test')
+			{
+			
+				steps{
+						sh 'gradle --version'
+						
+					}
+			
+				
+			}
+			
 	}
 }
