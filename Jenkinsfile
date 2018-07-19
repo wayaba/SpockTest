@@ -79,7 +79,7 @@ pipeline {
 			
 				steps{
 						sh 'gradle --version'
-						
+						sh 'gradle clean test'
 					}
 			
 				
