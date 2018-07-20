@@ -5,12 +5,13 @@ description = "FlexC Test Project"
 
 // Spock works with Java 1.5 and above
 sourceCompatibility = 1.5
-
+/*
 sourceSets {
     unitTest {
         groovy.srcDirs = [file('ApiMascotas/test/groovy')]       
     }
 }
+*/
 repositories {
   // Spock releases are available from Maven Central
   mavenCentral()
