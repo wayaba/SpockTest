@@ -17,16 +17,10 @@ class MyFirstSpec extends Specification {
 		when:
         def response = restClient.get( path: '/v2/pet/getPetsById', query: ['petId' : petid])
 
-        then:
-        assert response.status == 200
-
-        and:
-        response.responseData.nombre == expectedResult
-
-        where:
-        petid            | expectedResult
-        "2"  | "Tito"
-        "3"  | "Fido"
-        "4"   | "Brussels"
+       then:
+            with (response) {
+                status == 200
+                
+            }            
     }
 }
