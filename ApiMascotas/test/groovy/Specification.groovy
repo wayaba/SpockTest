@@ -1,6 +1,5 @@
 import groovyx.net.http.RESTClient
 import spock.lang.Specification
-import spock.lang.Unroll
 
 class RestSpecification extends Specification {
 
@@ -21,7 +20,6 @@ class RestSpecification extends Specification {
         response.responseData.name == "Eindhoven"
     }
 
-    @Unroll("Check #petid matches #expectedResult")
     def 'Check if we can find multiple cities'() {
         when:
         def response = restClient.get( path: '/v2/pet/getPetsById', query: ['petId' : petid])
