@@ -27,9 +27,6 @@ class MyFirstSpec extends Specification {
         def response = restClient.get(path: '/v2/pet')
 
 		then:
-            with (response) {
-                status == 200
-                
-            }            
+            assert response.status == 200
     }
 }
