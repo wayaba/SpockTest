@@ -1,27 +1,41 @@
 import groovyx.net.http.RESTClient
 import spock.lang.Specification
+import spock.lang.Unroll
 
-class FirstSpecification extends Specification {
+class RestSpecification extends Specification {
 
-RESTClient restClient = new RESTClient("http://192.168.99.100:7801", JSON)
+    RESTClient restClient = new RESTClient("http://api.openweathermap.org")
 
-def "one plus one should equal two"() {
-        expect:
-        1 + 1 == 2
+    def 'Check if the weather in Eindhoven can be found'() {
+        given:
+        String city = "Eindhoven,nl"
+
+        when:
+        def response = restClient.get( path: '/data/2.5/weather',
+                query: ['q' : city])
+
+        then:
+        response.status == 200
+
+        and:
+        response.responseData.name == "Eindhoven"
     }
-def "Get all pet"() {
-       
-       when: "get all arrivals"
-       def response = restClient.get(
-               path: '/v2/pet',
-               requestContentType: JSON
-       )
 
-       then: "Status is 200"
-       response.status == 200
+    @Unroll("Check #city matches #expectedResult")
+    def 'Check if we can find multiple cities'() {
+        when:
+        def response = restClient.get( path: '/data/2.5/weather', query: ['q' : city])
 
-       and: "Body contains proper values"
-       assert response.data[0].id == 1
-   }
+        then:
+        assert response.status == 200
 
+        and:
+        response.responseData.name == expectedResult
+
+        where:
+        city            | expectedResult
+        "Eindhoven,nl"  | "Eindhoven"
+        "Amsterdam,nl"  | "Amsterdam"
+        "Brussels,be"   | "Brussels"
+    }
 }
