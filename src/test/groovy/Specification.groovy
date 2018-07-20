@@ -1,10 +1,7 @@
 import groovyx.net.http.RESTClient
 import spock.lang.Specification
 import spock.lang.Unroll
-import org.junit.experimental.categories.Category
 
- 
-@Category(UnitTest.class)
 class RestSpecification extends Specification {
 
     RESTClient restClient = new RESTClient("http://api.openweathermap.org")
