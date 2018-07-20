@@ -24,7 +24,7 @@ class MyFirstSpec extends Specification {
 	def 'Checkeo get all'() {
 		
 		when:
-        def response = restClient.get('/v2/pet')
+        def response = restClient.get(path: '/v2/pet')
 
 		then:
             with (response) {
