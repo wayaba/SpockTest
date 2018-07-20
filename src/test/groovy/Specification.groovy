@@ -7,18 +7,24 @@ class MyFirstSpec extends Specification {
 
     RESTClient restClient = new RESTClient("http://192.168.99.100:7801")
 	
-/*
-	def "let's try this!"() {
-		expect:
-		Math.max(1, 2) == 3
-	}
-*/	
-	def 'Check if we can find multiple cities'() {
+	def 'Checkeo getPetsById'() {
 		given:
         String petid = "2"
 		
 		when:
         def response = restClient.get( path: '/v2/pet/getPetsById', query: ['petId' : petid])
+
+		then:
+            with (response) {
+                status == 200
+                
+            }            
+    }
+	
+	def 'Checkeo get all'() {
+		
+		when:
+        def response = restClient.get('/v2/pet')
 
 		then:
             with (response) {
