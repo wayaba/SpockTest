@@ -6,13 +6,13 @@ description = "Spock Framework - Example Project"
 // Spock works with Java 1.6 and above
 sourceCompatibility = 1.6
 
-/*
 sourceSets {
-    unitTest {
-        groovy.srcDirs = [file('ApiMascotas/test/groovy')]       
+    test {
+        groovy {
+            srcDirs= ['ApiMascotas/test/groovy']
+        }
     }
 }
-*/
 
 repositories {
   // Spock releases are available from Maven Central
