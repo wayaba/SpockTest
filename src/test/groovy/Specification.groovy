@@ -14,9 +14,6 @@ class MyFirstSpec extends Specification {
 	}
 */	
 	def 'Check if we can find multiple cities'() {
-		given:
-        String petid = "2"
-        
 		when:
         def response = restClient.get( path: '/v2/pet/getPetsById', query: ['petId' : petid])
 
@@ -28,8 +25,8 @@ class MyFirstSpec extends Specification {
 
         where:
         petid            | expectedResult
-        "2"  | "Fido"
-        "3"  | "Dico"
+        "2"  | "Tito"
+        "3"  | "Fido"
         "4"   | "Brussels"
     }
 }
