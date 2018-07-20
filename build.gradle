@@ -8,7 +8,7 @@ sourceCompatibility = 1.5
 
 sourceSets {
     unitTest {
-        groovy.srcDirs = [file('test/groovy')]       
+        groovy.srcDirs = [file('ApiMascotas/test/groovy')]       
     }
 }
 repositories {
