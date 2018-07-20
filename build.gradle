@@ -24,6 +24,8 @@ repositories {
 dependencies {
   // mandatory dependencies for using Spock
   compile "org.codehaus.groovy:groovy-all:2.4.15"
+  compile 'org.codehaus.groovy.modules.http-builder:http-builder:0.7.1'
+  
   testCompile "org.spockframework:spock-core:1.1-groovy-2.4"
 
   // optional dependencies for using Spock
