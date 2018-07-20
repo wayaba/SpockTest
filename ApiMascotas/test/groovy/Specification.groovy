@@ -8,6 +8,7 @@ class MyFirstSpec extends Specification {
     RESTClient restClient = new RESTClient("http://192.168.99.100:7801")
 	
 	def 'Checkeo getPetsById'() {
+		println "Veo que onda"
 		given:
         String petid = "2"
 		
